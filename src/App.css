@@ -1,0 +1,133 @@
+@font-face {
+  font-family: STAR WARS FONT;
+  src:url('Starjedi.ttf');
+  }
+
+body{
+  font-family: 'Montserrat', sans-serif;
+  background: #000000;  /* fallback for old browsers */
+background: linear-gradient(to left, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.App {
+  text-align: center;
+}
+.App-logo {
+  height: 80px;
+}
+.App-header {
+  background-color: transparent;
+  padding: 20px;
+  color: white;
+  margin-bottom:10px;
+}
+.App-title {
+  margin-top: 0;
+  padding-bottom:10px;
+  font-size: 1.3em;
+  font-family: STAR WARS FONT;
+  background: -webkit-linear-gradient(90deg,#e2e209, rgba(236, 233, 233, 0.596));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.Loader{
+  opacity:0;
+  animation:opacity 0.8s infinite linear;
+  
+}
+.cardsStyle{
+  background-image: linear-gradient(240deg,#333, #000);
+border:1px solid white;
+cursor: pointer;
+-moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: transform 0.25s ease-out;
+  border-radius: .5em;
+  display: inline-block;
+  margin:.5em;
+  padding:1.3em;
+}
+.cardsStyle:hover,focus{
+  transform: scale(1.05);
+}
+.cardsStyle h1 {
+  background: -webkit-linear-gradient(#eee, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.Popup-header{
+  letter-spacing: 5px;
+    width: 100%;
+  text-align: center;
+  border-bottom:2px solid transparent;
+  border-image: linear-gradient(to left,#aaa, #222, #aaa);
+  border-image-slice: 1;
+  padding: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  background: #000000;  /* fallback for old browsers */
+  background: linear-gradient(to left, #434343, #000000); 
+}
+.Popup-header h1{
+  font-size: 20px;
+  background: -webkit-linear-gradient(#eee, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.Popup-container {
+    display: flex;
+justify-content: space-between;
+background: #000000;  /* fallback for old browsers */
+background: linear-gradient(to left, #434343, #000000);
+color:white;
+}
+
+.Popup-planet, .Popup-films{
+    width: 35%;
+}
+.Popup-content{
+  width:auto;
+    align-self: center;
+}
+
+.Popup-content ul{
+    padding-left: 0;
+    text-align: center;
+}
+.Popup-content li{
+    
+    list-style-type:none;
+    text-align: center;
+    margin-left: 0;
+    padding-left: 0;
+}
+.Popup-films{
+  display:flex;
+  flex-flow: row wrap;
+}
+.Popup-coverOn, .Popup-coverOff{
+  width:30%;
+  margin:1%;
+  align-self: center;
+  
+}
+.Popup-coverOff{
+  filter: grayscale();
+}
+.Popup-questionMark{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  z-index: 1;
+  color:white;
+  font-weight: bold;
+  font-size: 30px;
+
+}
+
+@keyframes opacity{
+  0% {opacity: 0}
+  100% {opacity: 1}
+}
