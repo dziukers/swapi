@@ -17,9 +17,9 @@ class planet extends Component {
         
  const resp = await fetch(this.props.planet);
  const homeworld = await resp.json();
-let planetName = homeworld.name;
+let planetName = homeworld;
  await this.setState({
-     homeworld: planetName
+     homeworld: planetName.name
  });
     }
    render(){
