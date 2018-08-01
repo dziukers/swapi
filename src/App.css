@@ -26,7 +26,7 @@ background: linear-gradient(to left, #434343, #000000); /* W3C, IE 10+/ Edge, Fi
   padding-bottom:10px;
   font-size: 1.3em;
   font-family: STAR WARS FONT;
-  background: -webkit-linear-gradient(90deg,#e2e209, rgba(236, 233, 233, 0.596));
+  background: -webkit-linear-gradient(90deg,#fcfc03, rgba(255, 255, 255, 0.61));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -55,6 +55,11 @@ cursor: pointer;
   background: -webkit-linear-gradient(#eee, #333);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+hr {
+  border-bottom:1px solid transparent;
+  border-image: linear-gradient(to left,transparent, #222, transparent);
+  border-image-slice: 1;
 }
 .Popup-header{
   letter-spacing: 5px;
@@ -124,8 +129,11 @@ color:white;
   color:white;
   font-weight: bold;
   font-size: 30px;
-
 }
+.planetInfo {
+  background: red;
+}
+
 
 @keyframes opacity{
   0% {opacity: 0}
