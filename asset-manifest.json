@@ -1,8 +1,8 @@
 {
-  "main.css": "static/css/main.e86e0a60.css",
-  "main.css.map": "static/css/main.e86e0a60.css.map",
-  "main.js": "static/js/main.f1d0d6ee.js",
-  "main.js.map": "static/js/main.f1d0d6ee.js.map",
+  "main.css": "static/css/main.b3351a54.css",
+  "main.css.map": "static/css/main.b3351a54.css.map",
+  "main.js": "static/js/main.b0661ab2.js",
+  "main.js.map": "static/js/main.b0661ab2.js.map",
   "static\\media\\Alderaan.png": "static/media/Alderaan.3c138dee.png",
   "static\\media\\Bespin.png": "static/media/Bespin.32d3a36e.png",
   "static\\media\\Cato Neimoidia.png": "static/media/Cato Neimoidia.51fc631a.png",
@@ -22,10 +22,13 @@
   "static\\media\\Starjedi.ttf": "static/media/Starjedi.cc3019aa.ttf",
   "static\\media\\Tatooine.png": "static/media/Tatooine.912b11a6.png",
   "static\\media\\Umbara.png": "static/media/Umbara.e48d91ad.png",
+  "static\\media\\desert.jpg": "static/media/desert.ba871b85.jpg",
   "static\\media\\episode1.jpg": "static/media/episode1.4f1dd7d3.jpg",
   "static\\media\\episode3.jpg": "static/media/episode3.24759629.jpg",
   "static\\media\\episode4.jpg": "static/media/episode4.4b01fc64.jpg",
   "static\\media\\episode5.jpg": "static/media/episode5.30ca2b2e.jpg",
   "static\\media\\episode6.jpg": "static/media/episode6.84ecfc55.jpg",
-  "static\\media\\logo.png": "static/media/logo.7793e59b.png"
+  "static\\media\\gasgiant.jpg": "static/media/gasgiant.d9d33eb7.jpg",
+  "static\\media\\logo.png": "static/media/logo.7793e59b.png",
+  "static\\media\\urban.jpg": "static/media/urban.d02d1606.jpg"
 }
