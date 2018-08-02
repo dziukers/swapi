@@ -61,6 +61,7 @@ hr {
   border-image: linear-gradient(to left,transparent, #222, transparent);
   border-image-slice: 1;
 }
+
 .Popup-header{
   letter-spacing: 5px;
     width: 100%;
