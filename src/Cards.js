@@ -15,12 +15,11 @@ import './App.css';
 <Popup trigger= 
         {<div className='cardsStyle'>
         <h1>{this.props.characters}</h1> 
-        </div> } 
+        </div> }
     modal
     closeOnDocumentClick
     contentStyle = {{
-        padding:'0px', border:'1px solid grey'
-    }}>
+        padding:'0px', border:'1px solid grey'}}>
     <div className='Popup-header'><h1>{this.props.characters}</h1></div>
     <div className='Popup-container'>
     <div className ='Popup-planet'>   

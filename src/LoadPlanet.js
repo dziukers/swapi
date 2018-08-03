@@ -89,7 +89,8 @@ let planetName = homeworld;
             <Popup
             trigger= {
             <div style={{position:'relative', cursor:'pointer'}}>
-                <h2>{homeworld}</h2>
+            <h6 style={{margin:'20px 0 0 0', paddingBottom:'6px'}}>Homeworld:</h6>
+                <h2 style={{marginTop:'0', paddingTop:'0', fontStyle:'italic'}}>{homeworld}</h2>
                <SwitchPlanetPicture homeworld={homeworld}/> 
             </div>
             }
@@ -113,16 +114,21 @@ let planetName = homeworld;
 }
 
 const SwitchPlanetPicture = ({homeworld}) => {
+
     try {
         return(
-        <img src={require(`./Images/${homeworld}.png`)} width='60%' alt='homeworld'/>
+        <div className='planetPhoto'>
+        <img  src={require(`./Images/${homeworld}.png`)}  alt='homeworld'/>
+        <img className='magnifier' src={require('./Images/Magnifier.png')} />
+        </div>
         )
     }
     catch(err) {
         return(
-            <div >
-        <img src={require(`./Images/Alderaan.png`)} width='60%' style={{filter: 'grayscale()'}} alt='homeworld'/>
-        <h1 className='Popup-questionMark'>?</h1> 
+        <div className='planetPhoto'>
+        <img src={require(`./Images/Alderaan.png`)} style={{filter: 'grayscale()'}} alt='homeworld'/>
+        <img className='magnifier' src={require('./Images/Magnifier.png')} /> 
+        <span className='Popup-questionMark'>?</span>
         </div>
     )
     }

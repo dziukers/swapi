@@ -6,8 +6,7 @@
 body{
   font-family: 'Montserrat', sans-serif;
   background: #000000;  /* fallback for old browsers */
-background: linear-gradient(to left, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  background: linear-gradient(to left, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .App {
   text-align: center;
@@ -20,7 +19,35 @@ background: linear-gradient(to left, #434343, #000000); /* W3C, IE 10+/ Edge, Fi
   padding: 20px;
   color: white;
   margin-bottom:10px;
+
 }
+.laserContainer{
+  position: absolute;
+  max-width:40%;
+  display:flex;
+  top:40%;
+  left:50%;
+  transform: translate(-50%,-50%) ;
+}
+.laserDiv{
+  align-self: center;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  background-color:white;
+  filter:blur(3px);
+  width:0%;
+  height:50%;
+  padding:3px 0;
+  margin-left:-3%;
+  box-shadow: 0 0 0 4px red;
+  animation:laser 2s infinite ease-out;
+}
+.laser{
+  width:30%;
+  height:100%;
+  z-index: 2;
+}
+
 .App-title {
   margin-top: 0;
   padding-bottom:10px;
@@ -29,11 +56,6 @@ background: linear-gradient(to left, #434343, #000000); /* W3C, IE 10+/ Edge, Fi
   background: -webkit-linear-gradient(90deg,#fcfc03, rgba(255, 255, 255, 0.61));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-.Loader{
-  opacity:0;
-  animation:opacity 0.8s infinite linear;
-  
 }
 .cardsStyle{
   background-image: linear-gradient(240deg,#333, #000);
@@ -93,7 +115,6 @@ color:white;
     width: 35%;
 }
 .Popup-content{
-  width:auto;
     align-self: center;
 }
 
@@ -121,22 +142,49 @@ color:white;
 .Popup-coverOff{
   filter: grayscale();
 }
-.Popup-questionMark{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform: translate(-50%,-50%);
-  z-index: 1;
-  color:white;
-  font-weight: bold;
-  font-size: 30px;
-}
-.planetInfo {
-  background: red;
-}
 
-
-@keyframes opacity{
-  0% {opacity: 0}
-  100% {opacity: 1}
+@keyframes laser{
+  0% {width:0%;}
+  100%{width:70%}
+}
+.contentStyle{
+  width:20%;
+}
+@media only screen and (max-width: 1400px){
+  body{
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 1000px){
+  body{
+    font-size: 12px;
+  }
+}
+@media only screen and (max-width: 800px){
+  body{
+    font-size: 12px;
+  }
+  .Popup-container{
+    flex-flow: row wrap;
+    align-items: center;
+    width:100%;
+  }
+  .Popup-films{
+    display:flex;
+    flex-flow: row wrap;
+    width: 100%;
+    justify-content: space-between;
+}
+  .Popup-planet, .Popup-content{
+    width:45%;
+  }
+  .laserDiv{
+    filter:blur(1px);
+    width:0%;
+    height:50%;
+    padding:2px 0;
+    margin-left:-3%;
+    box-shadow: 0 0 0 2px red;
+    animation:laser 2s infinite ease-out;
+  }
 }

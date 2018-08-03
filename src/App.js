@@ -3,20 +3,24 @@ import logo from './logo.png';
 import './App.css';
 import CardsList from './CardsList';
 import SearchBox from './SearchBox';
-
+import laser from './Images/laser.png';
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
       characters: [],
-      searchfield: ''
+      searchfield: '',
+      loading:0
     }}
     
     componentDidMount() {
         this.getData();
        }
-
+    setLoading () {
+      const {loading} = this.state;
+      
+    }
     getData = async () => {
 
         let characters = [];
@@ -27,7 +31,8 @@ class App extends Component {
     
     await result.map(character =>{
          characters.push(character);
-    this.setState({characters: characters })
+    this.setState({characters: characters,
+                  loading: characters.length })
           }
         );
       }
@@ -42,7 +47,7 @@ class App extends Component {
     const filteredCharacters = characters.filter(person => 
     {return person.name.toLowerCase().includes(searchfield.toLowerCase());})
 
-if(characters.length < 40) {
+if(characters.length < 50) {
       return (
       <div className="App">
       <header className="App-header">
@@ -50,7 +55,8 @@ if(characters.length < 40) {
         <h1 className='App-title'>JnstaSearch</h1>
       <SearchBox onInput={this.onInput.bind(this)} />
       </header> 
-      <h1 className='Loader'>Loading</h1>
+      <div className='laserContainer'><img src={laser} className='laser'/>
+      <div className='laserDiv'></div></div>
       </div> )
  } else{
     return (
