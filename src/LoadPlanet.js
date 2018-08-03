@@ -54,7 +54,6 @@ let planetName = homeworld;
             if (terrain.includes('ocean')) { return ocean};
             if (terrain.includes('islands')) { return islands};
     }   
-
     planetBackground = (popupBackground) => {
         let bgStyle;
         if (popupBackground === undefined) {
