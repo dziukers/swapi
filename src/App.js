@@ -10,17 +10,12 @@ class App extends Component {
     super()
     this.state = {
       characters: [],
-      searchfield: '',
-      loading:0
+      searchfield: ''
     }}
     
     componentDidMount() {
         this.getData();
        }
-    setLoading () {
-      const {loading} = this.state;
-      
-    }
     getData = async () => {
 
         let characters = [];
@@ -31,8 +26,7 @@ class App extends Component {
     
     await result.map(character =>{
          characters.push(character);
-    this.setState({characters: characters,
-                  loading: characters.length })
+    this.setState({characters: characters})
           }
         );
       }
@@ -42,12 +36,10 @@ class App extends Component {
         } 
      
   render() {
-      
     const {characters, searchfield} = this.state;
     const filteredCharacters = characters.filter(person => 
     {return person.name.toLowerCase().includes(searchfield.toLowerCase());})
 
-if(characters.length < 50) {
       return (
       <div className="App">
       <header className="App-header">
@@ -55,26 +47,28 @@ if(characters.length < 50) {
         <h1 className='App-title'>JnstaSearch</h1>
       <SearchBox onInput={this.onInput.bind(this)} />
       </header> 
-      <div className='laserContainer'><img src={laser} className='laser'/>
-      <div className='laserDiv'></div></div>
-      </div> )
- } else{
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="Star Wars" />
-          <h1 className='App-title'>JnstaSearch</h1>
-        <SearchBox onInput={this.onInput.bind(this)} />
-        </header>      
-          <div>
-        <CardsList characters = {filteredCharacters} />
-          </div>
-      </div>
-    );
-  }
+      <LoadCharacters 
+      filteredCharacters={filteredCharacters} 
+      laser={laser} 
+      characters={characters} />
+      </div> 
+      )
   }
 }
 
+  const LoadCharacters = ({filteredCharacters, laser, characters}) => {
+    if(characters.length < 50) {
+      return(
+    <div className='laserContainer'><img src={laser} className='laser'/>
+    <div className='laserDiv'></div></div>
+    )}
+    else {
+      return (
+      <div>
+        <CardsList characters = {filteredCharacters} />
+      </div>)
+    }
+  }
 
 export default App; 
 

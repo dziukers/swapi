@@ -36,8 +36,8 @@ body{
   background-color:white;
   filter:blur(3px);
   width:0%;
-  height:50%;
   padding:3px 0;
+  margin-bottom:2px;
   margin-left:-3%;
   box-shadow: 0 0 0 4px red;
   animation:laser 2s infinite ease-out;
@@ -45,7 +45,7 @@ body{
 .laser{
   width:30%;
   height:100%;
-  z-index: 2;
+  z-index: 1;
 }
 
 .App-title {
@@ -86,7 +86,7 @@ hr {
 
 .Popup-header{
   letter-spacing: 5px;
-    width: 100%;
+    max-width: 50vw;
   text-align: center;
   border-bottom:2px solid transparent;
   border-image: linear-gradient(to left,#aaa, #222, #aaa);
@@ -109,8 +109,8 @@ justify-content: space-between;
 background: #000000;  /* fallback for old browsers */
 background: linear-gradient(to left, #434343, #000000);
 color:white;
+max-width:50vw;
 }
-
 .Popup-planet, .Popup-films{
     width: 35%;
 }
@@ -147,12 +147,16 @@ color:white;
   0% {width:0%;}
   100%{width:70%}
 }
-.contentStyle{
-  width:20%;
-}
+
 @media only screen and (max-width: 1400px){
   body{
     font-size: 14px;
+  }
+  .laserDiv{
+    filter:blur(2px);
+    padding:2px 0;
+    box-shadow: 0 0 0 3px red;
+    margin-bottom: 0;
   }
 }
 @media only screen and (max-width: 1000px){
@@ -161,13 +165,14 @@ color:white;
   }
 }
 @media only screen and (max-width: 800px){
-  body{
-    font-size: 12px;
+  .Popup-header{
+    max-width:80vw;
   }
   .Popup-container{
     flex-flow: row wrap;
     align-items: center;
-    width:100%;
+    left: 0;
+    max-width:80vw;
   }
   .Popup-films{
     display:flex;
@@ -178,13 +183,17 @@ color:white;
   .Popup-planet, .Popup-content{
     width:45%;
   }
+  .laserContainer{
+    max-width:80%;
+    display:flex;
+    top:40%;
+    left:50%;
+    transform: translate(-50%,-50%) ;
+  }
   .laserDiv{
     filter:blur(1px);
-    width:0%;
-    height:50%;
     padding:2px 0;
-    margin-left:-3%;
     box-shadow: 0 0 0 2px red;
-    animation:laser 2s infinite ease-out;
+    margin-bottom: 0;
   }
 }
