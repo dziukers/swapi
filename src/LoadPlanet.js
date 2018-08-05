@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './LoadPlanet.css';
 import Popup from 'reactjs-popup';
 import PlanetInfo from './PlanetInfo';
+import SwitchPlanetPicture from './SwitchPlanetPicture';
+
 import gasgiant from './Images/gasgiant.jpg';
 import desert from './Images/desert.jpg';
 import urban from './Images/urban.jpg';
@@ -41,7 +43,8 @@ let planetName = homeworld;
      gravity: planetName.gravity,
      terrain: planetName.terrain,
      diameter: planetName.diameter
- });}
+    });
+}
 
     pictureName = () => {
         const {terrain} = this.state;
@@ -54,6 +57,7 @@ let planetName = homeworld;
             if (terrain.includes('ocean')) { return ocean};
             if (terrain.includes('islands')) { return islands};
     }   
+    
     planetBackground = (popupBackground) => {
         let bgStyle;
         if (popupBackground === undefined) {
@@ -110,27 +114,6 @@ let planetName = homeworld;
             )
         }
     }        
-}
-
-const SwitchPlanetPicture = ({homeworld}) => {
-
-    try {
-        return(
-        <div className='planetPhoto'>
-        <img  src={require(`./Images/${homeworld}.png`)}  alt='homeworld'/>
-        <img className='magnifier' src={require('./Images/Magnifier.png')} />
-        </div>
-        )
-    }
-    catch(err) {
-        return(
-        <div className='planetPhoto'>
-        <img src={require(`./Images/Alderaan.png`)} style={{filter: 'grayscale()'}} alt='homeworld'/>
-        <img className='magnifier' src={require('./Images/Magnifier.png')} /> 
-        <span className='Popup-questionMark'>?</span>
-        </div>
-    )
-    }
 }
 
 export default planet;

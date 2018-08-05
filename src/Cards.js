@@ -20,6 +20,9 @@ import './App.css';
     closeOnDocumentClick
     contentStyle = {{
         padding:'0px', border:'1px solid grey', width:'auto', minWidth:'50%'}}>
+    {close=> (
+        <div>
+    <a className='Close-Popup' onClick={close}>&times;</a>
     <div className='Popup-header'><h1>{this.props.characters}</h1></div>
     <div className='Popup-container'>
         <div className ='Popup-planet'>   
@@ -28,9 +31,9 @@ import './App.css';
         
         <div className="Popup-content">
         <ul>
-        <li>Mass: {(this.props.mass=== 'unknown')?  `${this.props.mass}` : `${this.props.mass} kg`}</li>
+            <li>Mass: {(this.props.mass=== 'unknown')?  `${this.props.mass}` : `${this.props.mass} kg`}</li>
           <br />
-          <li>{`Height: ${this.props.height} `}</li>
+          <li>Height: {(this.props.height=== 'unknown')?  `${this.props.height}` : `${this.props.height} cm`}</li>
           <br />
           <li>{`Hair color: ${this.props.hair_color}`}</li>
           <br />
@@ -47,12 +50,10 @@ import './App.css';
             <LoadFilms films={this.props.films} />
         </div>
     </div>
+    </div>
+)}
 </Popup>
         )
     }
 }
-    
-    
-
-    
     export default cards; 

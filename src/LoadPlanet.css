@@ -1,13 +1,13 @@
 .PopupPlanet-style{
-    background-color:transparent;
-    background-size:cover;
-    color:black;
-    font-weight:bold;
+  background-color:transparent;
+  background-size:cover;
+  color:black;
+  font-weight:bold;
   }
   .planetPhoto{
     width:60%;
     margin:0 auto;
-    position:relative;
+    position: relative;
   }
   img.magnifier{
     position:absolute;
@@ -41,6 +41,16 @@
     }
     img.magnifier{
       opacity: 1;
+    }
+    .PopupPlanet-style{
+      position:absolute !important;
+      left:100% !important;
+      top:0 !important;
+      width:100% !important;
+      height: 100%;
+    }
+    .Popup-questionMark{
+      display:none;
     }
   }
 

@@ -59,8 +59,8 @@ class App extends Component {
   const LoadCharacters = ({filteredCharacters, laser, characters}) => {
     if(characters.length < 50) {
       return(
-    <div className='laserContainer'><img src={laser} className='laser'/>
-    <div className='laserDiv'></div></div>
+    <div className='lightsaberContainer'><img src={laser} className='lightsaberHilt' alt='Lightsaber hilt'/>
+    <div className='lightsaberDiv'></div></div>
     )}
     else {
       return (

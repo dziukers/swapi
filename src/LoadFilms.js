@@ -16,7 +16,7 @@ class films extends Component {
     }
     componentWillMount(){
         
-            this.props.films.filter(film => {
+            this.props.films.map(film => {
                 switch(film){
                     case 'https://swapi.co/api/films/1/': this.setState({
                         episode1:true
@@ -36,6 +36,7 @@ class films extends Component {
                     case 'https://swapi.co/api/films/6/': this.setState({
                         episode6:true
                     });break;
+                    default: return '?';
                 }
             }
         )
