@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.png';
 import './App.css';
-import CardsList from './CardsList';
 import SearchBox from './SearchBox';
+import LoadCharacters from './LoadCharacters';
+
+import logo from './logo.png';
 import laser from './Images/laser.png';
 
 class App extends Component {
@@ -11,7 +12,9 @@ class App extends Component {
     this.state = {
       characters: [],
       searchfield: ''
-    }}
+    }
+    this.onInput = this.onInput.bind(this);
+  }
     
     componentDidMount() {
         this.getData();
@@ -43,9 +46,9 @@ class App extends Component {
       return (
       <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="Star Wars" />
+        <img src={logo} className="App-logo" alt="Silver Star Wars logo" />
         <h1 className='App-title'>JnstaSearch</h1>
-      <SearchBox onInput={this.onInput.bind(this)} />
+      <SearchBox onInput={this.onInput} />
       </header> 
       <LoadCharacters 
       filteredCharacters={filteredCharacters} 
@@ -55,20 +58,6 @@ class App extends Component {
       )
   }
 }
-
-  const LoadCharacters = ({filteredCharacters, laser, characters}) => {
-    if(characters.length < 50) {
-      return(
-    <div className='lightsaberContainer'><img src={laser} className='lightsaberHilt' alt='Lightsaber hilt'/>
-    <div className='lightsaberDiv'></div></div>
-    )}
-    else {
-      return (
-      <div>
-        <CardsList characters = {filteredCharacters} />
-      </div>)
-    }
-  }
 
 export default App; 
 
