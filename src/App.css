@@ -168,7 +168,7 @@ max-width:50vw;
   
 }
 .Popup-coverOff{
-  filter: grayscale();
+  filter: grayscale(100%);
 }
 
 @keyframes laser{
