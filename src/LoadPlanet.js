@@ -13,8 +13,6 @@ import grassyhills from './Images/grassyhills.jpg';
 import ocean from './Images/ocean.jpg';
 import islands from './Images/islands.jpg';
 
-
-
 class planet extends Component {
     constructor(props){
         super(props);
@@ -74,7 +72,7 @@ let planetName = homeworld;
             backgroundSize:'cover',
             border:'2px solid transparent',
             borderImage: 'linear-gradient(to left,#aaa, #222, #aaa) 30 stretch',
-        }
+            }
         }
         return bgStyle;
     }
@@ -90,24 +88,24 @@ let planetName = homeworld;
         return (
             <Popup
             trigger= {
-            <div style={{position:'relative', cursor:'pointer'}}>
-            <h6 style={{margin:'20px 0 0 0', paddingBottom:'6px'}}>Homeworld:</h6>
+                <div style={{position:'relative', cursor:'pointer'}}>
+                <h6 style={{margin:'20px 0 0 0', paddingBottom:'6px'}}>Homeworld:</h6>
                 <h2 style={{marginTop:'0', paddingTop:'0', fontStyle:'italic'}}>{homeworld}</h2>
-               <SwitchPlanetPicture homeworld={homeworld}/> 
-            </div>
-            }
+                <SwitchPlanetPicture homeworld={homeworld}/> 
+                </div>
+                }
             className='PopupPlanet-style'
             contentStyle={backgroundStyle}
             arrowStyle={{background:'linear-gradient(to bottom,#aaa, #222)'}}
             position='top center'
             on='click'>
-            <div >
-            <PlanetInfo 
-            terrain={terrain} 
-            climate={climate} 
-            gravity={gravity} 
-            diameter={diameter} 
-            />
+            <div>
+                <PlanetInfo 
+                terrain={terrain} 
+                climate={climate} 
+                gravity={gravity} 
+                diameter={diameter} 
+                />
             </div>
             </Popup>
             )

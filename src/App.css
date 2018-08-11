@@ -1,12 +1,16 @@
 @font-face {
   font-family: STAR WARS FONT;
-  src:url('Starjedi.ttf');
-  }
+  src: url("Starjedi.ttf");
+}
 
-body{
-  font-family: 'Montserrat', sans-serif;
-  background: #000000;  /* fallback for old browsers */
-  background: linear-gradient(to left, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+body {
+  font-family: "Montserrat", sans-serif;
+  background: #000000; /* fallback for old browsers */
+  background: linear-gradient(
+    to left,
+    #434343,
+    #000000
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .App {
   text-align: center;
@@ -18,60 +22,178 @@ body{
   background-color: transparent;
   padding: 20px;
   color: white;
-  margin-bottom:10px;
-
+  margin-bottom: 10px;
 }
-.loadingWord{
+.loadingWord {
   font-family: star wars font;
-  position:absolute;
+  position: absolute;
   font-size: 1.5em;
-  left:50%;
-  top:-1em;
-  transform:translate(-50%,-50%);
-  color:transparent;
-  background: linear-gradient(90deg,#741515, transparent 80% );
+  left: 50%;
+  top: -1em;
+  transform: translate(-50%, -50%);
+  color: transparent;
+  background: linear-gradient(90deg, #741515, transparent 80%);
   background-size: 400% 400%;
-  -webkit-background-clip:text;
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: changeColor 2s infinite linear ;
+  animation: changeColor 2s infinite linear;
 }
 
-.lightsaberContainer{
+.lightsaberContainer {
   position: absolute;
-  max-width:40%;
-  display:flex;
-  top:40%;
-  left:50%;
-  transform: translate(-50%,-50%) ;
+  max-width: 40%;
+  display: flex;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-.lightsaberDiv{
+.lightsaberDiv {
   align-self: center;
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
-  background-color:white;
-  filter:blur(3px);
-  width:0%;
-  padding:3px 0;
-  margin-bottom:2px;
-  margin-left:-3%;
+  background-color: white;
+  filter: blur(3px);
+  width: 0%;
+  padding: 3px 0;
+  margin-bottom: 2px;
+  margin-left: -3%;
   box-shadow: 0 0 0 4px red, 0 0 2px 6px rgb(32, 6, 6);
-  animation:laser 2s infinite ease-out;
+  animation: laser 2s infinite ease-out;
 }
-.lightsaberHilt{
-  width:30%;
-  height:100%;
+.lightsaberHilt {
+  width: 30%;
+  height: 100%;
   z-index: 1;
 }
 
 .App-title {
   margin-top: 0;
-  padding-bottom:10px;
+  padding-bottom: 10px;
   font-size: 1.3em;
   font-family: STAR WARS FONT;
-  background: -webkit-linear-gradient(90deg,#fcfc03, rgba(255, 255, 255, 0.61));
+  background: -webkit-linear-gradient(
+    90deg,
+    #b46318,
+    rgba(255, 255, 255, 0.61)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.searchSettings{
+  display: flex;
+  justify-content: center;
+}
+.searchContainer{
+  position: relative;
+  display: flex;
+}
+.sortButton {
+  cursor: pointer;
+  width:2.5em;
+  border: 0 !important;
+  border-radius: .25em 0 0 .25em;
+  background: #5a7b9b;
+
+}
+.sortButton:hover {
+  background:#6b8cac;
+}
+.sortButton:focus {
+  outline: none;
+}
+select {
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background: #2c3e50;
+  background-image: none;
+}
+/* Custom Select */
+.select {
+  position: relative;
+  display: block;
+  width: 20em;
+  height: 2em;
+  line-height: 2;
+  background: #2c3e50;
+  overflow: hidden;
+  border-radius: 0 .25em .25em 0;
+}
+select {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0 0 0 .5em;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Arrow */
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 1em;
+  background: #34495e;
+  pointer-events: none;
+}
+/* Transition */
+.select:hover::after{
+  color: #f39c12;
+}
+.select:active::after{
+  color: #f39c12;
+}
+.select:focus::after{
+  color: #f39c12;
+}
+.select::after {
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
+}
+.inp{
+  position: relative;
+  width: 15em;
+  max-width: 250px;
+  }
+.searchInput{
+  width:15em;
+  height: 2em;
+  appearance: none;
+  border: 2px solid #2c3e50;
+  border-radius: 5px;
+  background: #2c3e50;
+  color:#f39c12;
+  margin:0 15px;
+  transition: all .15s ease;
+}
+.searchInput:focus{
+outline: none;
+}
+.searchInput:focus + .border {
+  transform: scaleX(1);
+  z-index:1;
+}
+.searchInput::placeholder{
+  color:#bbbbbb;
+}
+
+.border{
+    margin:0 15px;
+    position: absolute;
+    width:15em;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background: #f39c12;
+    transform: scaleX(0);
+    transform-origin: 0 0;
+    transition: all .15s ease;
+  }
 .Close-Popup {
   cursor: pointer;
   position: absolute;
@@ -85,20 +207,20 @@ body{
   border-radius: 18px;
   border: 1px solid #cfcece;
 }
-.cardsStyle{
-  background-image: linear-gradient(240deg,#333, #000);
-border:1px solid white;
-cursor: pointer;
--moz-osx-font-smoothing: grayscale;
+.cardsStyle {
+  background-image: linear-gradient(240deg, #333, #000);
+  border: 1px solid white;
+  cursor: pointer;
+  -moz-osx-font-smoothing: grayscale;
   backface-visibility: hidden;
   transform: translateZ(0);
   transition: transform 0.25s ease-out;
-  border-radius: .5em;
+  border-radius: 0.5em;
   display: inline-block;
-  margin:.5em;
-  padding:1.3em;
+  margin: 0.5em;
+  padding: 1.3em;
 }
-.cardsStyle:hover,focus{
+.cardsStyle:hover,focus {
   transform: scale(1.05);
 }
 .cardsStyle h1 {
@@ -107,138 +229,172 @@ cursor: pointer;
   -webkit-text-fill-color: transparent;
 }
 hr {
-  border-bottom:1px solid transparent;
-  border-image: linear-gradient(to left,transparent, #222, transparent);
+  border-bottom: 1px solid transparent;
+  border-image: linear-gradient(to left, transparent, #222, transparent);
   border-image-slice: 1;
 }
 
-.Popup-header{
+.Popup-header {
   letter-spacing: 5px;
-    max-width: 50vw;
+  max-width: 50vw;
   text-align: center;
-  border-bottom:2px solid transparent;
-  border-image: linear-gradient(to left,#aaa, #222, #aaa);
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(to left, #aaa, #222, #aaa);
   border-image-slice: 1;
   padding: 5px;
   text-transform: uppercase;
   font-weight: bold;
-  background: #000000;  /* fallback for old browsers */
-  background: linear-gradient(to left, #434343, #000000); 
+  background: #000000; /* fallback for old browsers */
+  background: linear-gradient(to left, #434343, #000000);
 }
-.Popup-header h1{
+.Popup-header h1 {
   font-size: 20px;
   background: -webkit-linear-gradient(#eee, #333);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .Popup-container {
-    display: flex;
-justify-content: space-between;
-background: #000000;  /* fallback for old browsers */
-background: linear-gradient(to left, #434343, #000000);
-color:white;
-max-width:50vw;
+  display: flex;
+  justify-content: space-between;
+  background: #000000; /* fallback for old browsers */
+  background: linear-gradient(to left, #434343, #000000);
+  color: white;
+  max-width: 50vw;
 }
-.Popup-planet, .Popup-films{
-    width: 35%;
+.Popup-planet,
+.Popup-films {
+  width: 35%;
 }
-.Popup-content{
-    align-self: center;
+.Popup-content {
+  align-self: center;
 }
 
-.Popup-content ul{
-    padding-left: 0;
-    text-align: center;
+.Popup-content ul {
+  padding-left: 0;
+  text-align: center;
 }
-.Popup-content li{
-    
-    list-style-type:none;
-    text-align: center;
-    margin-left: 0;
-    padding-left: 0;
+.Popup-content li {
+  list-style-type: none;
+  text-align: center;
+  margin-left: 0;
+  padding-left: 0;
 }
-.Popup-films{
-  display:flex;
+.Popup-films {
+  display: flex;
   flex-flow: row wrap;
 }
-.Popup-coverOn, .Popup-coverOff{
-  width:30%;
-  margin:1%;
+.Popup-coverOn,
+.Popup-coverOff {
+  width: 30%;
+  margin: 1%;
   align-self: center;
-  
 }
-.Popup-coverOff{
+.Popup-coverOff {
   filter: grayscale(100%);
 }
 
-@keyframes laser{
-  0% {width:0%;}
-  100%{width:70%}
+@keyframes laser {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 70%;
+  }
 }
 
 @keyframes changeColor {
-    0%{background-position:100% 100%}
-    50% {background-position:50% 50%}
-    100%{background-position:0% 0%}
+  0% {
+    background-position: 100% 100%;
+  }
+  50% {
+    background-position: 50% 50%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
 }
-@media only screen and (max-width: 1400px){
-  body{
+@media only screen and (max-width: 1400px) {
+  body {
     font-size: 14px;
   }
-  .lightsaber{
-    filter:blur(2px);
-    padding:1px 0;
+  .lightsaber {
+    filter: blur(2px);
+    padding: 1px 0;
     box-shadow: 0 0 0 2px red;
     margin-bottom: 0;
   }
 }
-@media only screen and (max-width: 1200px){
-  body{
+@media only screen and (max-width: 1200px) {
+  body {
     font-size: 12px;
   }
-  .lightsaberDiv{
-    filter:blur(2px);
-    padding:2px 0;
+  .lightsaberDiv {
+    filter: blur(2px);
+    padding: 2px 0;
     box-shadow: 0 0 0 3px red;
   }
 }
-@media only screen and (max-width: 800px){
-  .Popup-header{
-    max-width:75vw;
+@media only screen and (max-width: 800px) {
+  .Popup-header {
+    max-width: 75vw;
   }
-  .Popup-container{
+  .Popup-container {
     flex-flow: row wrap;
     align-items: center;
     left: 0;
-    max-width:75vw;
+    max-width: 75vw;
   }
-  .Popup-films{
-    display:flex;
+  .Popup-films {
+    display: flex;
     flex-flow: row wrap;
     width: 100%;
     justify-content: space-between;
-}
-  .Popup-planet, .Popup-content{
-    width:50%;
   }
-  .Popup-planet{
-    position:relative;
+  .Popup-planet,
+  .Popup-content {
+    width: 50%;
   }
-  .Popup-planet img{
-    width:80%;
+  .Popup-planet {
+    position: relative;
   }
-  .lightsaberContainer{
-    max-width:80%;
-    display:flex;
-    top:40%;
-    left:50%;
-    transform: translate(-50%,-50%) ;
+  .Popup-planet img {
+    width: 80%;
   }
-  .lightsaberDiv{
-    filter:blur(1px);
-    padding:1.5px 0;
+  .lightsaberContainer {
+    max-width: 80%;
+    display: flex;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .lightsaberDiv {
+    filter: blur(1px);
+    padding: 1.5px 0;
     box-shadow: 0 0 0 2px red;
     margin-bottom: 1px;
   }
-}
 
+  .inp{
+    margin: 0 auto;
+    align-self: center;
+    width:100vw;
+  }
+  .searchInput, .border{
+    margin:0;
+    width:100%;
+  }
+  .searchSettings{
+    font-size: 18px;
+    flex-flow: column-reverse;
+    align-items: center;
+  }
+  .searchContainer{
+    margin:10px auto 0 auto;
+    width:90vw;
+    font-size: 16px;
+  }
+  .select{
+    align-self: center;
+    width:100%;
+  }
+}
