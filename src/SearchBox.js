@@ -4,18 +4,18 @@ import FilterOptions from "./FilterOptions";
 const SearchBox = ({ onInput, onClick, onChange }) => {
   return (
     <div className='searchSettings'>
-      <div className='searchContainer'>
+      <div className='filterSortContainer'>
         <button className='sortButton' onClick={onClick}><i className="fas fa-sort-alpha-down"></i></button>
         <FilterOptions onChange={onChange}/>
       </div>
-      <label for="inp" class="inp">
+      <label className="searchContainer">
       <input
         className='searchInput'
         type="search"
         placeholder="Search character"
         onChange={onInput}>
       </input>
-      <span className='border'> </span>
+      <span className='borderBottom-Input'> </span>
       </label>
     </div>
   );

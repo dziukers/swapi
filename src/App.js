@@ -30,17 +30,17 @@ class App extends Component {
 
       await result.map(character => {
         characters.push(character);
-        this.setState({ characters: characters
+        this.setState({ 
+          characters: characters
         });
       });
     }
   };
-  onInput = e => {
+  search = (e) => {
     this.setState({ searchfield: e.target.value });
   };
 
-onClick =() => {
-  console.log(this);
+sorting =() => {
   function compare(a,b) {
     if (a.name < b.name)
       return -1;
@@ -49,7 +49,8 @@ onClick =() => {
     return 0;
   }
   let sortedCharacters = this.state.characters.sort(compare);
-  this.state.sortDir ? this.setState({characters: sortedCharacters, sortDir: false})
+  this.state.sortDir ? 
+  this.setState({characters: sortedCharacters, sortDir: false})
   : 
   this.setState({characters: sortedCharacters.reverse(),sortDir: true})
   
@@ -74,7 +75,7 @@ filter = (e) => {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="Silver Star Wars logo" />
           <h1 className="App-title">JnstaSearch</h1>
-          <SearchBox onChange={this.filter} onInput={this.onInput} onClick={this.onClick} /> 
+          <SearchBox onChange={this.filter} onInput={this.search} onClick={this.sorting} /> 
         </header>
         <LoadCharacters
           filteredCharacters={filteredCharacters}

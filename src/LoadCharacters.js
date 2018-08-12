@@ -4,7 +4,7 @@ import CardsList from "./CardsList";
 const LoadCharacters = ({ filteredCharacters, laser, characters }) => {
   if (characters.length < 60) {
     return (
-      <div>
+      <div style={{marginTop:'100px'}}>
         <div className="lightsaberContainer">
           <span className="loadingWord">Loading</span>
           <img src={laser} className="lightsaberHilt" alt="Lightsaber hilt" />
