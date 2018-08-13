@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./App.css";
 import SearchBox from "./SearchBox";
 import LoadCharacters from "./LoadCharacters";
-
 import logo from "./logo.png";
 import laser from "./Images/laser.png";
 

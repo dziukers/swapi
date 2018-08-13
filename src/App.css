@@ -16,9 +16,10 @@ body {
   text-align: center;
 }
 .App-logo {
-  height: 80px;
+  height:80px;
+  padding-bottom:6px;
   border-bottom: 2px solid transparent;
-  border-image: linear-gradient(to left, rgba(34, 34, 34,0.5), rgba(170, 170, 170,1), rgba(34, 34, 34,0.5));
+  border-image: linear-gradient(to left, rgba(34, 34, 34,0.5), rgb(129, 17, 17), rgba(34, 34, 34,0.5));
   border-image-slice: 1;
 }
 .App-header {
@@ -34,14 +35,13 @@ body {
 }
 
 .App-title {
-  margin-top: 0;
+  margin-top: -1px;
   padding-bottom: 10px;
   font-size: 1.3em;
   font-family: STAR WARS FONT;
   background: -webkit-linear-gradient(
-    90deg,
-    #b46318,
-    rgba(255, 255, 255, 0.61)
+    270deg,
+    rgb(185, 32, 32), rgb(199, 137, 21), rgb(143, 28, 28)
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -278,7 +278,7 @@ hr {
   list-style-type: none;
   text-align: center;
   margin-left: 0;
-  padding-left: 0;
+  padding: 2px 0 1px 0;
 }
 .Popup-films {
   display: flex;
