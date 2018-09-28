@@ -67,9 +67,10 @@ class cards extends Component {
                 </ul>
               </div>
               <div className="Popup-films">
+                <h6 style={{margin:'10px 0 0 0', paddingBottom:'6px', textAlign:'center'}}>Appeared in:</h6>
                 <LoadFilms films={this.props.films} />
               </div>
-            </div>
+              </div>
           </div>
         )}
       </Popup>

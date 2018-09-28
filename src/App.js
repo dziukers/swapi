@@ -4,7 +4,8 @@ import SearchBox from "./SearchBox";
 import LoadCharacters from "./LoadCharacters";
 import logo from "./logo.png";
 import laser from "./Images/laser.png";
-
+import deathstar from './Images/death-star2.png';
+import Scroll from './Scroll';
 
 class App extends Component {
   constructor() {
@@ -55,9 +56,9 @@ sorting =() => {
   
 }
 filter = (e) => {
-  let choosedFilter = e.target.value;
+  let chosenFilter = e.target.value;
   this.setState({
-    filter: choosedFilter
+    filter: chosenFilter
   })
 }
   render() {
@@ -72,15 +73,21 @@ filter = (e) => {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="Silver Star Wars logo" />
-          <h1 className="App-title">JnstaSearch</h1>
-          <SearchBox onChange={this.filter} onInput={this.search} onClick={this.sorting} /> 
+          <span className="App-description">{`All Star Wars characters in one place\nData comes from STAR WARS API`}</span>
+          <div className="App-logoContainer">
+            <img src={logo} className="App-logo" alt="Black Star Wars logo" />
+            <h1 className="App-title">JnstaSearch</h1>
+            <SearchBox onChange={this.filter} onInput={this.search} onClick={this.sorting} /> 
+          </div>
+          <div className='App-deathstar'><img src={deathstar} alt='moving death star'/></div>
         </header>
-        <LoadCharacters
-          filteredCharacters={filteredCharacters}
-          laser={laser}
-          characters={characters}
-        />
+        <Scroll>
+          <LoadCharacters
+            filteredCharacters={filteredCharacters}
+            laser={laser}
+            characters={characters}
+          />
+        </Scroll>
       </div>
     );
   }

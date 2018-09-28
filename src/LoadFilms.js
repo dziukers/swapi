@@ -43,7 +43,9 @@ class films extends Component {
     let boolean = Object.values(this.state);
     let cover = Object.keys(this.state);
 
-    return <Covers boolean={boolean} cover={cover} />;
+    return (
+    <Covers boolean={boolean} cover={cover} />
+    )
   }
 }
 

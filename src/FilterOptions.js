@@ -4,7 +4,7 @@ const FilterOptions = ({onChange}) => {
     return (
         <div className='select'>
         <select onChange={onChange}>
-    <option value='none'>Filter By Home Planet or Movie</option>
+    <option value='none'>Filter Characters By Movie or Planet</option>
           <optgroup label="Movies">
           <option value='https://swapi.co/api/films/4/'>Episode 1 The Phantom Menace</option>
           <option value='https://swapi.co/api/films/5/'>Episode 2 Attack of the Clones</option>
