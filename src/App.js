@@ -25,11 +25,12 @@ class App extends Component {
   getData = async (link) => {
     const resp = await fetch(link);
     const page = await resp.json();
-    const result = page.results;
+    const result = await page.results;
+    const nextPage = await page.next;
     this.setState(prevState => ({
       characters: [...prevState.characters, ...result]
     }));
-    if (page.next) this.getData(page.next);
+    if (nextPage) this.getData(nextPage.replace('http', 'https'));
   };
 
   search = (e) => {
