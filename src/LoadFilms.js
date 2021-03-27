@@ -14,27 +14,33 @@ class films extends Component {
     };
   }
   componentWillMount() {
-    this.props.films.map(film => {
+    this.props.films.forEach(film => {
       switch (film) {
-        case "https://swapi.co/api/films/1/":
+        case "http://swapi.dev/api/films/1/":
           this.setState({
-            episode4: true});break;
-        case "https://swapi.co/api/films/2/":
+            episode4: true
+          }); break;
+        case "http://swapi.dev/api/films/2/":
           this.setState({
-            episode5: true});break;
-        case "https://swapi.co/api/films/3/":
+            episode5: true
+          }); break;
+        case "http://swapi.dev/api/films/3/":
           this.setState({
-            episode6: true});break;
-        case "https://swapi.co/api/films/4/":
+            episode6: true
+          }); break;
+        case "http://swapi.dev/api/films/4/":
           this.setState({
-            episode1: true});break;
-        case "https://swapi.co/api/films/5/":
+            episode1: true
+          }); break;
+        case "http://swapi.dev/api/films/5/":
           this.setState({
-            episode2: true});break;
-        case "https://swapi.co/api/films/6/":
+            episode2: true
+          }); break;
+        case "http://swapi.dev/api/films/6/":
           this.setState({
-            episode3: true});break;
-        default: return "?";
+            episode3: true
+          }); break;
+        default: return;
       }
     });
   }
@@ -44,7 +50,7 @@ class films extends Component {
     let cover = Object.keys(this.state);
 
     return (
-    <Covers boolean={boolean} cover={cover} />
+      <Covers boolean={boolean} cover={cover} />
     )
   }
 }
