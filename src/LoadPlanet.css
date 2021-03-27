@@ -1,0 +1,55 @@
+.PopupPlanet-style {
+  background-color: transparent;
+  background-size: cover;
+  color: black;
+  font-weight: bold;
+}
+.planetPhoto {
+  width: 60%;
+  margin: 0 auto;
+  position: relative;
+}
+img.magnifier {
+  position: absolute;
+  max-width: 30px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  z-index: 2;
+}
+div.planetPhoto:hover > img.magnifier {
+  opacity: 1;
+}
+.Popup-questionMark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+}
+div.planetPhoto:hover > .Popup-questionMark {
+  opacity: 0;
+}
+
+@media only screen and (max-width: 800px) {
+  .planetPhoto {
+    width: 100%;
+  }
+  img.magnifier {
+    opacity: 1;
+  }
+  .PopupPlanet-style {
+    position: absolute !important;
+    left: 100% !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: 100%;
+  }
+  .Popup-questionMark {
+    display: none;
+  }
+}
