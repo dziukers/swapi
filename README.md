@@ -1,1 +1,1 @@
-Github pages 
+Star Wars Instasearch App
