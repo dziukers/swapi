@@ -23,10 +23,10 @@ class cards extends Component {
           padding: "0px",
           border: "1px solid grey",
           width: "auto",
-          minWidth: "50%"
+          minWidth: "50%",
         }}
       >
-        {close => (
+        {(close) => (
           <div>
             <a className="Close-Popup" onClick={close}>
               &times;
@@ -36,7 +36,9 @@ class cards extends Component {
             </div>
             <div className="Popup-container">
               <div className="Popup-planet">
-                <LoadPlanet planet={this.props.homeworld} />
+                <LoadPlanet
+                  planet={this.props.homeworld.replace("http", "https")}
+                />
               </div>
 
               <div className="Popup-content">
@@ -67,10 +69,18 @@ class cards extends Component {
                 </ul>
               </div>
               <div className="Popup-films">
-                <h6 style={{margin:'10px 0 0 0', paddingBottom:'6px', textAlign:'center'}}>Appeared in:</h6>
+                <h6
+                  style={{
+                    margin: "10px 0 0 0",
+                    paddingBottom: "6px",
+                    textAlign: "center",
+                  }}
+                >
+                  Appeared in:
+                </h6>
                 <LoadFilms films={this.props.films} />
               </div>
-              </div>
+            </div>
           </div>
         )}
       </Popup>

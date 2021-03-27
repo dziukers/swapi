@@ -4,8 +4,8 @@ import SearchBox from "./SearchBox";
 import LoadCharacters from "./LoadCharacters";
 import logo from "./logo.png";
 import laser from "./Images/laser.png";
-import deathstar from './Images/death-star2.png';
-import Scroll from './Scroll';
+import deathstar from "./Images/death-star2.png";
+import Scroll from "./Scroll";
 
 class App extends Component {
   constructor() {
@@ -14,12 +14,14 @@ class App extends Component {
       characters: [],
       searchfield: "",
       sortDir: true,
-      filter: 'none'
+      filter: "none",
+      minLoadTimePassed: false,
     };
   }
 
   componentDidMount() {
-    this.getData(`https://swapi.dev/api/people/`);
+    setTimeout(() => this.setState({ minLoadTimePassed: true }), 3000);
+    this.getData("https://swapi.dev/api/people/");
   }
 
   getData = async (link) => {
@@ -27,10 +29,10 @@ class App extends Component {
     const page = await resp.json();
     const result = await page.results;
     const nextPage = await page.next;
-    this.setState(prevState => ({
-      characters: [...prevState.characters, ...result]
+    this.setState((prevState) => ({
+      characters: [...prevState.characters, ...result],
     }));
-    if (nextPage) this.getData(nextPage.replace('http', 'https'));
+    if (nextPage) this.getData(nextPage.replace("http", "https"));
   };
 
   search = (e) => {
@@ -39,35 +41,38 @@ class App extends Component {
 
   sorting = () => {
     function compare(a, b) {
-      if (a.name < b.name)
-        return -1;
-      if (a.name > b.name)
-        return 1;
+      if (a.name < b.name) return -1;
+      if (a.name > b.name) return 1;
       return 0;
     }
     let sortedCharacters = this.state.characters.sort(compare);
-    this.state.sortDir ?
-      this.setState({ characters: sortedCharacters, sortDir: false })
-      :
-      this.setState({ characters: sortedCharacters.reverse(), sortDir: true })
-  }
+    this.state.sortDir
+      ? this.setState({ characters: sortedCharacters, sortDir: false })
+      : this.setState({
+          characters: sortedCharacters.reverse(),
+          sortDir: true,
+        });
+  };
 
   filter = (e) => {
     let chosenFilter = e.target.value;
     this.setState({
-      filter: chosenFilter
-    })
-  }
+      filter: chosenFilter,
+    });
+  };
 
   render() {
-    const { characters, searchfield, filter } = this.state;
+    const { characters, searchfield, filter, minLoadTimePassed } = this.state;
 
-    const filteredCharacters = characters.filter(person => {
-      if (filter !== 'none') {
-        return (filter === person.homeworld || person.films.includes(filter)) &&
+    const filteredCharacters = characters.filter((person) => {
+      if (filter !== "none") {
+        return (
+          (filter === person.homeworld || person.films.includes(filter)) &&
           person.name.toLowerCase().includes(searchfield.toLowerCase())
+        );
+      } else {
+        return person.name.toLowerCase().includes(searchfield.toLowerCase());
       }
-      else { return person.name.toLowerCase().includes(searchfield.toLowerCase()); }
     });
 
     return (
@@ -77,15 +82,22 @@ class App extends Component {
           <div className="App-logoContainer">
             <img src={logo} className="App-logo" alt="Black Star Wars logo" />
             <h1 className="App-title">JnstaSearch</h1>
-            <SearchBox onChange={this.filter} onInput={this.search} onClick={this.sorting} />
+            <SearchBox
+              onChange={this.filter}
+              onInput={this.search}
+              onClick={this.sorting}
+            />
           </div>
-          <div className='App-deathstar'><img src={deathstar} alt='moving death star' /></div>
+          <div className="App-deathstar">
+            <img src={deathstar} alt="moving death star" />
+          </div>
         </header>
         <Scroll>
           <LoadCharacters
             filteredCharacters={filteredCharacters}
             laser={laser}
             characters={characters}
+            minLoadTimePassed={minLoadTimePassed}
           />
         </Scroll>
       </div>
